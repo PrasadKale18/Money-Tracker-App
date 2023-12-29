@@ -1,0 +1,45 @@
+<div class="box">
+    <h2 class="mid"><u><b>Transactions</b></u></h2>
+    <form [formGroup]="transactionForm">
+  
+      <div>
+        <label for="description">Description:</label>
+        <input type="text" id="description" placeholder="Description" formControlName="description" />
+        <div *ngIf="description.errors?.required && description.touched" class="clr">
+          Description is required
+        </div>
+      </div>
+  
+      <div>
+        <label for="amount">Amount:</label>
+        <input type="text" id="amount" placeholder="Amount" formControlName="amount" />
+        <div *ngIf="amount.errors?.required && amount.touched" class="clr">
+          Amount is required
+        </div>
+        <div *ngIf="amount.errors?.pattern && amount.touched" class="clr">
+          Please enter a valid amount
+        </div>
+      </div>
+  
+      <div>
+        <label for="date">Date:</label>
+        <input type="date" id="date" formControlName="date" />
+        <div *ngIf="date.errors?.date && date.touched"  class="clr">
+          Type is required
+        </div>
+      </div>
+  
+      <div>
+        <label for="type">Type:</label>
+        <select id="type" formControlName="type">
+          <option value="expense">Expense</option>
+          <option value="income">Income</option>
+        </select>
+        <div *ngIf="type.errors?.type && type.touched"  class="clr">
+          Type is required
+        </div>
+      </div>
+  
+      <button type="submit" (click)="onSubmit()">Add Transaction</button>
+    </form>
+  </div>

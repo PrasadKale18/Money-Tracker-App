@@ -1,0 +1,26 @@
+
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Description</th>
+            <th>Amount</th>
+            <th>Type</th>
+            <th>Date</th>
+            <th>Delete</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let data of allData; let i = index">
+
+            <td>{{1+i}}</td>
+            <td>{{data.description}}</td>
+            <td>{{data.amount}}</td>
+            <td>{{data.type}}</td>
+            <td>{{data.date}}</td>
+            <td><button (click)="deleteTransaction(data.id)"><i class="fa-solid fa-trash"></i></button></td>
+        </tr>
+
+    </tbody>
+  </table>
+  
